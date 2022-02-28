@@ -411,19 +411,19 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
         self.tabWidget.setCurrentIndex(0)
-        self.CONNECT.clicked.connect(Dialog.accept)
-        self.SAMQUE.clicked.connect(Dialog.accept)
-        self.SAMSET.clicked.connect(Dialog.accept)
-        self.FFTSET.clicked.connect(Dialog.accept)
-        self.STASAM.clicked.connect(Dialog.accept)
-        self.CLEARMESSAGE.clicked.connect(Dialog.accept)
-        self.OUTSWITCHSET.clicked.connect(Dialog.accept)
-        self.OUTENABLE.clicked.connect(Dialog.accept)
-        self.IN1SET.clicked.connect(Dialog.accept)
-        self.IN2SET.clicked.connect(Dialog.accept)
-        self.IN1DATAQUE.clicked.connect(Dialog.accept)
-        self.IN2DATAQUE.clicked.connect(Dialog.accept)
-        self.OUTQUE.clicked.connect(Dialog.accept)
+        self.CONNECT.clicked.connect(Dialog.connect_device)  # type: ignore
+        self.SAMQUE.clicked.connect(Dialog.samp_query)  # type: ignore
+        self.SAMSET.clicked.connect(Dialog.samp_set)  # type: ignore
+        self.FFTSET.clicked.connect(Dialog.fftnum_set)  # type: ignore
+        self.STASAM.clicked.connect(Dialog.data_collect_start)  # type: ignore
+        self.CLEARMESSAGE.clicked.connect(Dialog.clearText)  # type: ignore
+        self.OUTSWITCHSET.clicked.connect(Dialog.out_onoff_set)  # type: ignore
+        self.OUTENABLE.clicked.connect(Dialog.channelout_set)  # type: ignore
+        self.IN1SET.clicked.connect(Dialog.channel_1set)
+        self.IN2SET.clicked.connect(Dialog.channel_2set)
+        self.IN1DATAQUE.clicked.connect(Dialog.channel1_query)
+        self.IN2DATAQUE.clicked.connect(Dialog.channel2_query)
+        self.OUTQUE.clicked.connect(Dialog.channelout_query)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
